@@ -1,5 +1,6 @@
 import Announcements from "@/components/Announcements"
 import BigCalendar from "@/components/BigCalendar"
+import FormModal from "@/components/FormModal"
 import PerformanceChart from "@/components/PerformanceChart"
 import Image from "next/image"
 import Link from "next/link"
@@ -22,7 +23,29 @@ const SingleStudentPage = () => {
                             className="w-36 h-36 rounded-full object-cover"/>
                         </div>
                         <div className="w-[77%] flex flex-col justify-between gap-4">
-                            <h1 className="text-xl font-semibold">Phoebe Poole</h1>
+
+                             <div className="flex items-center justify-between">
+                                <h1 className="text-xl font-semibold">Phoebe Poole</h1>
+                                <FormModal table="student" type="update" data={
+                                    {
+                                        id: 3,
+                                        username: "phoebe.poole",
+                                        email: "phoebe@poole.com",
+                                        password: "pwd4586",
+                                        firstname: "Phoebe",
+                                        lastname: "Poole",
+                                        phone: "+ 1234 567 890",
+                                        address: "123 Main St, Anytown, USA",
+                                        bloodType: "O-",
+                                        birthday: "2007-02-09",
+                                        sex: "female",
+                                        img:
+                                            "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                                        // subjects: ["Biology"],
+                                        // classes: ["5A", "4B", "3C"],
+                                    }
+                                } />
+                            </div>
                             <p className="text-sm text-gray-500"> Lion setting explore cowboy fruit successful
                             </p>
                             <div className="flex items-center justify-between  gap-2 flex-wrap text-xs font-medium">

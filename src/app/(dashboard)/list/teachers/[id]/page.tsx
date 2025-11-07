@@ -1,5 +1,6 @@
 import Announcements from "@/components/Announcements"
 import BigCalendar from "@/components/BigCalendar"
+import FormModal from "@/components/FormModal"
 import PerformanceChart from "@/components/PerformanceChart"
 import Image from "next/image"
 import Link from "next/link"
@@ -15,34 +16,56 @@ const SingleTeacherPage = () => {
                     <div className="bg-kjcSky py-6 px-4 rounded-md flex-1 flex gap-4">
 
                         <div className="w-[23%]">
-                            <Image src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1200" 
-                            alt="Teacher's photo" 
-                            width={144} 
-                            height={144} 
-                            className="w-36 h-36 rounded-full object-cover"/>
+                            <Image src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                                alt="Teacher's photo"
+                                width={144}
+                                height={144}
+                                className="w-36 h-36 rounded-full object-cover" />
                         </div>
                         <div className="w-[77%] flex flex-col justify-between gap-4">
-                            <h1 className="text-xl font-semibold">Verna Marsh</h1>
+                            <div className="flex items-center justify-between">
+                                <h1 className="text-xl font-semibold">Verna Marsh</h1>
+                                <FormModal table="teacher" type="update" data={
+                                    {
+                                        id: 3,
+                                        username: "mike.geller",
+                                        email: "mike@geller.com",
+                                        password: "pwd1234",
+                                        firstname: "Mike",
+                                        lastname: "Geller",
+                                        phone: "+ 1234 567 890",
+                                        address: "123 Main St, Anytown, USA",
+                                        bloodType: "O-",
+                                        birthday: "2000-02-09",
+                                        sex: "male",
+                                        img:
+                                            "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                                        // subjects: ["Biology"],
+                                        // classes: ["5A", "4B", "3C"],
+                                    }
+                                } />
+                            </div>
+
                             <p className="text-sm text-gray-500"> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             </p>
                             <div className="flex items-center justify-between  gap-2 flex-wrap text-xs font-medium">
                                 <div className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 flex items-center gap-2">
-                                    <Image src="/blood.png" alt="" width={14} height={14}/>
+                                    <Image src="/blood.png" alt="" width={14} height={14} />
                                     <span>A+</span>
                                 </div>
 
                                 <div className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 flex items-center gap-2">
-                                    <Image src="/date.png" alt="" width={14} height={14}/>
+                                    <Image src="/date.png" alt="" width={14} height={14} />
                                     <span>Janvier 2025</span>
                                 </div>
 
                                 <div className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 flex items-center gap-2">
-                                    <Image src="/mail.png" alt="" width={14} height={14}/>
+                                    <Image src="/mail.png" alt="" width={14} height={14} />
                                     <span>ovdoktiz@gmail.com</span>
                                 </div>
 
                                 <div className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 flex items-center gap-2">
-                                    <Image src="/phone.png" alt="" width={14} height={14}/>
+                                    <Image src="/phone.png" alt="" width={14} height={14} />
                                     <span className=""> 651 54 87 18</span>
                                 </div>
                             </div>
@@ -98,8 +121,8 @@ const SingleTeacherPage = () => {
 
                 {/* BOTTOM SECTION */}
                 <div className="mt-4 bg-white rounded-md p-4 h-[800px]">
-                    <h1>Teacher&apos;s Schedule</h1>   
-                    <BigCalendar /> 
+                    <h1>Teacher&apos;s Schedule</h1>
+                    <BigCalendar />
                 </div>
             </div>
             {/* RIGHT SIDE */}
@@ -108,21 +131,21 @@ const SingleTeacherPage = () => {
                     <h1 className="text-xl font-semibold">Shortcuts</h1>
                 </div>
                 <div className="mt-4 flex gap-4 flex-wrap text-xs text-gray-500">
-                        <Link className="p-3 rounded-md bg-kjcSkyLight" href="/">
-                            Teacher&apos;s Classes
-                        </Link>
-                        <Link className="p-3 rounded-md bg-kjcPurpleLight" href="/">
-                            Teacher&apos;s Students
-                        </Link>
-                        <Link className="p-3 rounded-md bg-kjcYellowLight" href="/">
-                            Teacher&apos;s Lessons
-                        </Link>
-                        <Link className="p-3 rounded-md bg-pink-50" href="/">
-                            Teacher&apos;s Exams
-                        </Link>
-                        <Link className="p-3 rounded-md bg-kjcSkyLight" href="/">
-                            Teacher&apos;s Assignments
-                        </Link>
+                    <Link className="p-3 rounded-md bg-kjcSkyLight" href="/">
+                        Teacher&apos;s Classes
+                    </Link>
+                    <Link className="p-3 rounded-md bg-kjcPurpleLight" href="/">
+                        Teacher&apos;s Students
+                    </Link>
+                    <Link className="p-3 rounded-md bg-kjcYellowLight" href="/">
+                        Teacher&apos;s Lessons
+                    </Link>
+                    <Link className="p-3 rounded-md bg-pink-50" href="/">
+                        Teacher&apos;s Exams
+                    </Link>
+                    <Link className="p-3 rounded-md bg-kjcSkyLight" href="/">
+                        Teacher&apos;s Assignments
+                    </Link>
                 </div>
                 <PerformanceChart />
                 <Announcements />

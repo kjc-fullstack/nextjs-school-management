@@ -3,6 +3,15 @@
 import Image from "next/image";
 import { useState } from "react";
 import TeacherForm from "./forms/TeacherForm";
+import StudentForm from "./forms/StudentForm";
+
+
+const forms:{
+  [key: string] : (type:"create" | "update", data?: any) => JSX.Element;
+}={
+  teacher: (type, data) => <TeacherForm type={type} data={data} />,
+  student: (type, data) => <StudentForm type={type} data={data} />
+}
 
 const FormModal = ({table, type, data, id}: {
     table: "teacher" | "student" | "parent" | "subject" | "class" | "lesson" | "exam" | "assignment" | "result" | "attendance" | "event" | "announcement";
@@ -28,7 +37,13 @@ const FormModal = ({table, type, data, id}: {
                 </form>
             :  
             // "Create or update form";
-            <TeacherForm type="create" data={data} />
+            type === "create" || type === "update" ? (
+            forms[table](type, data) 
+            ) : (
+              <div className="font-semibold text-xl">
+                Form not found!
+              </div>
+            )
   };
   return (
     <>
