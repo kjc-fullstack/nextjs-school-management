@@ -1,9 +1,17 @@
 "use client"
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
-import TeacherForm from "./forms/TeacherForm";
-import StudentForm from "./forms/StudentForm";
+// import TeacherForm from "./forms/TeacherForm";
+// import StudentForm from "./forms/StudentForm";
+
+const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
+  loading: () => (<h1>Loading...</h1>)
+});
+const StudentForm = dynamic(() => import("./forms/StudentForm"), {
+  loading: () => (<h1>Loading...</h1>)
+});
 
 
 const forms:{
